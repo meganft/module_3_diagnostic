@@ -1,3 +1,9 @@
-<% @data.each do |data| %>
-<%= data["station_name"] %><br>
+<h2>Here are your results:</h2>
+<% @locations.each do |location| %>
+<h5>Station name: <%= location.name %></h5>
+<p>Address: <%= location.address %></p>
+<p>Fuel Type:<%= location.fuel_type %></p>
+<p>Distance from you:<%= location.distance %></p>
+<p>Open Times:<%= location.access_times %></p>
+
 <% end %>
