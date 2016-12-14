@@ -15,14 +15,14 @@
 # The `.rspec` file also contains a few flags that are not defaults but that
 # users commonly want.
 
-# require 'vcr'
+require 'vcr'
+
+VCR.configure do |config|
+  config.cassette_library_dir = "spec/fixtures/vcr_cassettes"
+  config.hook_into :webmock
+  config.configure_rspec_metadata!
+end
 #
-# VCR.configure do |config|
-#   config.cassette_library_dir = "spec/fixtures/vcr_cassettes"
-#   config.hook_into :webmock
-#   config.configure_rspec_metadata!
-# end
-# #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate

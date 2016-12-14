@@ -1,12 +1,13 @@
 class SearchController < ApplicationController
 
   def index
-    # @location = Location.all
-    response = Faraday.get( "http://developer.nrel.gov/api/alt-fuel-stations/v1/nearest.json?api_key=#{ENV["nrel_api_key"]}&location=80202&fuel_type=ELEC&LPG&offset=10")
+    byebug
+    @location = Location.by_zip(params["q"])
 
-    data = JSON.parse(response.body)
-    @data = data["fuel_stations"]
+    # response = Faraday.get( "http://developer.nrel.gov/api/alt-fuel-stations/v1/nearest.json?api_key=#{ENV["nrel_api_key"]}&location=80202&fuel_type=ELEC&LPG&offset=10")
 
+    # data = JSON.parse(response.body)
+    # @data = data["fuel_stations"]
 
     # location = Location.new
     #
